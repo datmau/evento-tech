@@ -14,7 +14,7 @@ body {
 
 /* Botones reutilizables */
 .btn-primary, .btn-cta {
-  background-color: #e60023;
+  background-color: #3fbd34;
   color: #fff;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -46,7 +46,7 @@ h2 {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #e60023;
+  color: #3fbd34;
 }
 
 .menu {
@@ -98,7 +98,7 @@ h2 {
 }
 
 .dia {
-  background-color: #e60023;
+  background-color: #2dbab6;
   color: #fff;
   padding: 1.5rem;
   border-radius: 10px;
@@ -155,7 +155,7 @@ h2 {
 
 .form-grid button {
   grid-column: span 2;
-  background-color: #e60023;
+  background-color: #b718b2;
   color: white;
   border: none;
   cursor: pointer;
