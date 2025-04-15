@@ -29,6 +29,9 @@ h2 {
   color: #e60023;
   text-align: center;
 }
+hero-text h3{
+  color: #e60023;
+}
 
 /* Header */
 .navbar {
