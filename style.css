@@ -166,8 +166,10 @@ hero-text h3{
 
 /* Footer */
 footer {
+  margin: 1px black;
   background-color: #222;
   color: #fff;
   text-align: center;
   padding: 1rem;
+  box-shadow: 10px 10px 10px rgb(150, 143, 143);
 }
