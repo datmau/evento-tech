@@ -96,4 +96,5 @@ body h1 {
 .team-member:hover {
   filter: none;
   transform: scale(0.95);
+  box-shadow: 10px 10px 10px rgba(256, 150, 200, 0.8);
 }
