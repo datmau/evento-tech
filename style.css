@@ -1,12 +1,21 @@
 /* Reset básico */
+@font-face {
+  font-family: ChunkFivePrint;
+  src: url(./assets/fonts/ChunkFivePrint.otf) format('truetype');
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 16px;
+  /* Fuentes Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 }
 
+
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins','Segoe UI', sans-serif;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
@@ -24,7 +33,7 @@ body {
 }
 
 h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
   font-size: 2rem;
   color: #e60023;
   text-align: center;
