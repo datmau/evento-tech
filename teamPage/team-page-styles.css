@@ -6,10 +6,60 @@
   /* background: #fafaf0; */
 }
 
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
 body h1 {
   margin: 1rem 0;
   text-align: center;
   font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+/* Botones reutilizables */
+.btn-primary,
+.btn-cta {
+  background-color: #e40505;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e40505;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
 .team {
@@ -97,4 +147,14 @@ body h1 {
   filter: none;
   transform: scale(0.95);
   box-shadow: 10px 10px 10px rgba(256, 150, 200, 0.8);
+}
+
+/* Footer */
+footer {
+  margin: 1px black;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 10px 10px 10px rgb(150, 143, 143);
 }
