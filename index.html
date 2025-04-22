@@ -1,32 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Evento Tech 2025</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <h1 class="logo">EventoTech</h1>
-        <ul class="menu">
-          <li><a href="#agenda">Agenda</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="#registro">Registro</a></li>
-        </ul>
-        <a href="#registro" class="btn-cta">Registrarse</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evento Tech 2025</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">EventoTech</h1>
+      <ul class="menu">
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#registro">Registro</a></li>
+        <li><a href="zones.html">Zonas</a></li>
+        <li><a href="gallery.html">Galería</a></li>
+      </ul>
+      <a href="#registro" class="btn-cta">Registrarse</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <div class="hero-text">
-        <h2>Conferencia de Tecnología 2025</h2>
-        <p>Conéctate con expertos y conoce las últimas tendencias.</p>
-        <a href="#registro" class="btn-primary">Reserva tu lugar</a>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Conferencia de Tecnología 2025</h2>
+      <h3>Folleto de datos</h3>
+      <h3>Carta</h3>
+      <p>Conéctate con expertos y conoce las últimas tendencias.</p>
+      <a href="#registro" class="btn-primary">Reserva tu lugar</a>
+    </div>
+    <div class="hero-img">
+      <img src="./assets/tech-illustration.png" alt="Ilustración Tech" />
+    </div>
+  </section>
+
+  <section class="agenda" id="agenda">
+    <h2>Agenda del Evento</h2>
+    <div class="agenda-grid">
+      <div class="dia dia1">Día 1<br><small>Charlas introductorias</small></div>
+      <div class="dia dia2">Día 2<br><small>Workshops</small></div>
+      <div class="dia dia3">Día 3<br><small>Networking</small></div>
+    </div>
+  </section>
+
+  <section class="speakers" id="speakers">
+    <h2>Speakers</h2>
+    <div class="speakers-container">
+    <div class="speakers-grid">
+      <div class="speaker">
+        <img src="./assets/speaker1.webp" alt="Speaker 1" />
+        <h3>Alex Camacho</h3>
+        <p>Ninja Dev</p>
       </div>
-      <div class="hero-img">
-        <img src="./assets/tech-illustration.png" alt="Ilustración Tech" />
+    </div>
+    <div class="speakers-grid">
+      <div class="speaker">
+        <img src="./assets/speaker1.webp" alt="Speaker 1" />
+        <h3>Alexaner Camacho</h3>
+        <p>Ninja Dev</p>
       </div>
     </section>
 
@@ -41,43 +73,9 @@
       </div>
     </section>
 
-    <section class="speakers" id="speakers">
-      <h2>Speakers</h2>
-      <div class="speakers-container">
-        <div class="speakers-grid">
-          <div class="speaker">
-            <img src="./assets/speaker1.webp" alt="Speaker 1" />
-            <h3>Alex Camacho</h3>
-            <p>Ninja Dev</p>
-          </div>
-        </div>
-        <div class="speakers-grid">
-          <div class="speaker">
-            <img src="./assets/speaker1.webp" alt="Speaker 1" />
-            <h3>Alexaner Camacho</h3>
-            <p>Ninja Dev</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <footer>
 
-    <section class="registro" id="registro">
-      <h2>Regístrate Gratis</h2>
-      <form class="form-grid">
-        <input type="text" placeholder="Nombre completo" required />
-        <input type="email" placeholder="Correo electrónico" required />
-        <select required>
-          <option value="">Interés principal</option>
-          <option>Frontend</option>
-          <option>Backend</option>
-          <option>IA</option>
-        </select>
-        <button type="submit">Enviar Registro</button>
-      </form>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 EventoTech. Todos los derechos reservados.</p>
-    </footer>
-  </body>
+    <p>&copy; 2025 EventoTech. Todos los derechos reservados.</p>
+  </footer>
+</body>
 </html>
