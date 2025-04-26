@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evento Tech 2025</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -29,8 +30,6 @@
       <h3>Carta</h3>
       <p>Conéctate con expertos y conoce las últimas tendencias.</p>
       <a href="#registro" class="btn-primary">Reserva tu lugar</a>
-      <a id="registered-btn" href="#" class="btn-primary">Ya estás registrado</a>
-
     </div>
     <div class="hero-img">
       <img src="./assets/tech-illustration.png" alt="Ilustración Tech" />
@@ -41,9 +40,9 @@
     <h2>Agenda del Evento</h2>
     <div class="agenda-grid">
       <div class="dia dia1">Día 1<br><span id='day-description'>TEXTO ON MOUSER OVER</span>
-                                <br><small>Charlas introductorias</small>
-                                <p id="day-detail">9:00 REgistro<br>10:00 Lunch</p>
-                              </div>
+        <br><small>Charlas introductorias</small>
+        <p id="day-detail">9:00 REgistro<br>10:00 Lunch</p>
+      </div>
       <div class="dia dia2">Día 2<br><small>Workshops</small></div>
       <div class="dia dia3">Día 3<br><small>Networking</small></div>
     </div>
@@ -52,106 +51,112 @@
   <section class="speakers" id="speakers">
     <h2>Speakers</h2>
     <div class="speakers-container">
-    <div class="speakers-grid">
-      <div class="speaker">
-        <img src="./assets/speaker1.webp" alt="Speaker 1" />
-        <h3>Alex Camacho</h3>
-        <p>Ninja Dev</p>
+      <div class="speakers-grid">
+        <div class="speaker">
+          <img src="./assets/speaker1.webp" alt="Speaker 1" />
+          <h3>Alex Camacho</h3>
+          <p>Ninja Dev</p>
+        </div>
       </div>
-    </div>
-    <div class="speakers-grid">
-      <div class="speaker">
-        <img src="./assets/speaker1.webp" alt="Speaker 1" />
-        <h3>Alexaner Camacho</h3>
-        <p>Ninja Dev</p>
-      </div>
-    </section>
+      <div class="speakers-grid">
+        <div class="speaker">
+          <img src="./assets/speaker1.webp" alt="Speaker 1" />
+          <h3>Alexaner Camacho</h3>
+          <p>Ninja Dev</p>
+        </div>
+  </section>
 
-    <section class="registro" id="registro">
-      <h2>Regístrate Gratis</h2>
-      <form class="form-grid">
-        <input type="text" placeholder="Nombre completo" required />
-        <input type="email" placeholder="Correo electrónico" required />
-        <select required>
-          <option value="">Interés principal</option>
-          <option>Frontend</option>
-          <option>Backend</option>
-          <option>IA</option>
-        </select>
-        <button class="btn-primary" type="submit">Enviar Registro</button>
-      </form>
-    </section>
+  <section class="registro" id="registro">
+    <h2>Regístrate Gratis</h2>
+    <form class="form-grid">
+      <input id="first-name" name="first-name" type="text" placeholder="Nombre completo" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <input id="phone-input" type="phone" patter placeholder="Numero de teléfono" />
+      <select required>
+        <option value="">Interés principal</option>
+        <option>Frontend</option>
+        <option>Backend</option>
+        <option>IA</option> 
+      </select>
+      <button class="btn-primary" type="submit">Enviar Registro</button>
+    </form>
+  </section>
 
   <footer>
 
     <p>&copy; 2025 EventoTech. Todos los derechos reservados.</p>
   </footer>
   <script>
-    const paragraph = document.createElement('p');
-    paragraph.innerText = "ESTE ES UN NUEVO PÁRRAFO CREADO CON JAVASCRIPT";
-    //document.body.appendChild(paragraph);
-    const heroSection = document.querySelector('.hero-text');
-    heroSection.insertBefore(paragraph,heroSection.children[6]);
-    //heroSection.appendChild(paragraph);
-    console.log(heroSection);
-     
-    // Seleccionar el div agenda
-    //const agendaContainer = document.querySelector('.agenda-grid');
-    const newDay = document.createElement('div');
-    newDay.innerHTML = "Día 4<br><small>Charlas de cierre</small>";
-    newDay.classList.add('dia', 'dia4');
-    //agendaContainer.appendChild(newDay);
-    document.querySelector('.agenda-grid').appendChild(newDay);
+    document.addEventListener('DOMContentLoaded', () => {
+      const gridForm = document.querySelector(".form-grid");
+      const emailInput = gridForm.querySelector('input[type="email"]');
+      const phoneInput = document.getElementById('phone-input')
+      emailInput.value = "Email2";
+      const nameInput = document.getElementById("first-name");
+      const isOnlyLetters = (value) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value);
+      const isOnlyNumbers = (value) => /^[0-9\s]+$/.test(value);
+      const isValidEmail = (value) => /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);
 
 
-    // Ya nos logueamos y en username se guardo el nombre del usuario
-    let userName = 'ALEX';
-    const registerButton = document.getElementById('registered-btn');
-    registerButton.innerText = "¡Ya estás registrado.!" ;
-    registerButton.innerHTML = "<strong>¡Ya estás registrado.!</strong>";
-    const registerNavBtn = document.getElementById('register-nav');
+      nameInput.addEventListener('blur', (evt) => {
+        if (isOnlyLetters(nameInput.value)) {
+          console.log("SI SON SOLO LETRAS");
+        } else {
+          console.log("NO SON SOLO LETRAS");
+        }
+      });
 
-    const dayOneCard = document.querySelector('.dia1');
+      phoneInput.addEventListener('blur', (evt) => {
+        if (isOnlyNumbers(phoneInput.value)) {
+          let nextElement = phoneInput.nextElementSibling;
+            
+          nextElement.style.display = 'none';
+        } else {
+          nextElement.style.display = 'block';
+        }
+      });
 
-    dayOneCard.addEventListener('mouseover',function(){
-      const dayDescription = document.getElementById('day-description');
-      const dayDetail = document.getElementById('day-detail')
-      dayDescription.style.display = 'block'; //true
-      dayDetail.style.display = 'block'; //true
+      nameInput.addEventListener('input', function (evt) {
+        nameInput.value = isOnlyLetters(evt.target.value) ? evt.target.value.toUpperCase() : nameInput.value = evt.target.value.slice(0, -1);
+        /* if (isOnlyLetters(evt.target.value)) {
+          nameInput.value = evt.target.value.toUpperCase();
+        }else{
+          nameInput.value = evt.target.value.slice(0, -1);
+        } */
+      });
+
+      phoneInput.addEventListener('input', function (evt) {
+        if (!isOnlyNumbers(evt.target.value)) {
+          //phoneInput.value = evt.target.value.slice(0, -1);
+          let nextElement = phoneInput.nextElementSibling;  
+          console.log(nextElement);        
+
+          if(nextElement.innerText === 'Solo puede ingrensar numeros.' || nextElement.innerText === 'Solo  ingrensar numeros.'){
+            nextElement.innerText = "Solo numeros exisste";
+          }else{
+            const errorMessage = document.createElement('p'); 
+            errorMessage.style.color = 'red';
+            errorMessage.style.fontWeight = 700;
+            errorMessage.innerText = 'Solo puede ingrensar numeros.';
+            gridForm.insertBefore(errorMessage, nextElement);
+          }
+
+
+          
+
+        }
+      });
+
+
+
+
+
+
+
     });
 
-    dayOneCard.addEventListener('mouseout', function() {
-      const dayDescription = document.getElementById('day-description');
-      const dayDetail = document.getElementById('day-detail')
-      dayDescription.style.display = 'none'; //false
-      dayDetail.style.display = 'none'; //false
-    });
 
-
-
-
-    /*     registerButton.addEventListener('focusout', function() {
-          registerButton.style.backgroundColor = "#f0f0f0";
-        });
-
-        registerButton.addEventListener('mouseover', function() {
-          registerButton.style.backgroundColor = "green";
-        });
-        
-        
-        registerButton.addEventListener('mouseout', function() {
-          registerButton.style.backgroundColor = "pink";
-        });
-
-        registerButton.addEventListener('click', function() {
-          registerNavBtn.innerText = "¡Hola " + userName + "!" ;
-        });
-    */
-    
-
-    
-
-
-</script>
+  </script>
 </body>
+
 </html>
