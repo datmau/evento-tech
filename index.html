@@ -18,7 +18,7 @@
         <li><a href="zones.html">Zonas</a></li>
         <li><a href="gallery.html">Galería</a></li>
       </ul>
-      <a href="#registro" class="btn-cta">Registrarse</a>
+      <a id='register-nav' href="#registro" class="btn-cta">Registrarse</a>
     </nav>
   </header>
 
@@ -29,6 +29,8 @@
       <h3>Carta</h3>
       <p>Conéctate con expertos y conoce las últimas tendencias.</p>
       <a href="#registro" class="btn-primary">Reserva tu lugar</a>
+      <a id="registered-btn" href="#" class="btn-primary">Ya estás registrado</a>
+
     </div>
     <div class="hero-img">
       <img src="./assets/tech-illustration.png" alt="Ilustración Tech" />
@@ -38,7 +40,10 @@
   <section class="agenda" id="agenda">
     <h2>Agenda del Evento</h2>
     <div class="agenda-grid">
-      <div class="dia dia1">Día 1<br><small>Charlas introductorias</small></div>
+      <div class="dia dia1">Día 1<br><span id='day-description'>TEXTO ON MOUSER OVER</span>
+                                <br><small>Charlas introductorias</small>
+                                <p id="day-detail">9:00 REgistro<br>10:00 Lunch</p>
+                              </div>
       <div class="dia dia2">Día 2<br><small>Workshops</small></div>
       <div class="dia dia3">Día 3<br><small>Networking</small></div>
     </div>
@@ -62,20 +67,91 @@
       </div>
     </section>
 
-    <section class="agenda" id="agenda">
-      <h2>Agenda del Evento</h2>
-      <div class="agenda-grid">
-        <div class="dia dia1">
-          Día 1<br /><small>Charlas introductorias</small>
-        </div>
-        <div class="dia dia2">Día 2<br /><small>Workshops</small></div>
-        <div class="dia dia3">Día 3<br /><small>Networking</small></div>
-      </div>
+    <section class="registro" id="registro">
+      <h2>Regístrate Gratis</h2>
+      <form class="form-grid">
+        <input type="text" placeholder="Nombre completo" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <select required>
+          <option value="">Interés principal</option>
+          <option>Frontend</option>
+          <option>Backend</option>
+          <option>IA</option>
+        </select>
+        <button class="btn-primary" type="submit">Enviar Registro</button>
+      </form>
     </section>
 
   <footer>
 
     <p>&copy; 2025 EventoTech. Todos los derechos reservados.</p>
   </footer>
+  <script>
+    const paragraph = document.createElement('p');
+    paragraph.innerText = "ESTE ES UN NUEVO PÁRRAFO CREADO CON JAVASCRIPT";
+    //document.body.appendChild(paragraph);
+    const heroSection = document.querySelector('.hero-text');
+    heroSection.insertBefore(paragraph,heroSection.children[6]);
+    //heroSection.appendChild(paragraph);
+    console.log(heroSection);
+     
+    // Seleccionar el div agenda
+    //const agendaContainer = document.querySelector('.agenda-grid');
+    const newDay = document.createElement('div');
+    newDay.innerHTML = "Día 4<br><small>Charlas de cierre</small>";
+    newDay.classList.add('dia', 'dia4');
+    //agendaContainer.appendChild(newDay);
+    document.querySelector('.agenda-grid').appendChild(newDay);
+
+
+    // Ya nos logueamos y en username se guardo el nombre del usuario
+    let userName = 'ALEX';
+    const registerButton = document.getElementById('registered-btn');
+    registerButton.innerText = "¡Ya estás registrado.!" ;
+    registerButton.innerHTML = "<strong>¡Ya estás registrado.!</strong>";
+    const registerNavBtn = document.getElementById('register-nav');
+
+    const dayOneCard = document.querySelector('.dia1');
+
+    dayOneCard.addEventListener('mouseover',function(){
+      const dayDescription = document.getElementById('day-description');
+      const dayDetail = document.getElementById('day-detail')
+      dayDescription.style.display = 'block'; //true
+      dayDetail.style.display = 'block'; //true
+    });
+
+    dayOneCard.addEventListener('mouseout', function() {
+      const dayDescription = document.getElementById('day-description');
+      const dayDetail = document.getElementById('day-detail')
+      dayDescription.style.display = 'none'; //false
+      dayDetail.style.display = 'none'; //false
+    });
+
+
+
+
+    /*     registerButton.addEventListener('focusout', function() {
+          registerButton.style.backgroundColor = "#f0f0f0";
+        });
+
+        registerButton.addEventListener('mouseover', function() {
+          registerButton.style.backgroundColor = "green";
+        });
+        
+        
+        registerButton.addEventListener('mouseout', function() {
+          registerButton.style.backgroundColor = "pink";
+        });
+
+        registerButton.addEventListener('click', function() {
+          registerNavBtn.innerText = "¡Hola " + userName + "!" ;
+        });
+    */
+    
+
+    
+
+
+</script>
 </body>
 </html>
