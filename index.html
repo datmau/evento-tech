@@ -70,13 +70,13 @@
     <h2>Regístrate Gratis</h2>
     <form class="form-grid">
       <input id="first-name" name="first-name" type="text" placeholder="Nombre completo" required />
-      <input type="email" placeholder="Correo electrónico" required />
-      <input id="phone-input" type="phone" patter placeholder="Numero de teléfono" />
-      <select required>
+      <input id="email" name="email" type="email" placeholder="Correo electrónico" required />
+      <input id="phone-input" name="phone-input" type="phone" patter placeholder="Numero de teléfono" />
+      <select id="interest" required>
         <option value="">Interés principal</option>
-        <option>Frontend</option>
-        <option>Backend</option>
-        <option>IA</option> 
+        <option value="FE">Frontend</option>
+        <option value="BE">Backend</option>
+        <option value="AI">IA</option> 
       </select>
       <button class="btn-primary" type="submit">Enviar Registro</button>
     </form>
@@ -86,6 +86,7 @@
 
     <p>&copy; 2025 EventoTech. Todos los derechos reservados.</p>
   </footer>
+  <script src="assets/js/utils.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const gridForm = document.querySelector(".form-grid");
@@ -93,9 +94,6 @@
       const phoneInput = document.getElementById('phone-input')
       emailInput.value = "Email2";
       const nameInput = document.getElementById("first-name");
-      const isOnlyLetters = (value) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value);
-      const isOnlyNumbers = (value) => /^[0-9\s]+$/.test(value);
-      const isValidEmail = (value) => /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);
 
 
       nameInput.addEventListener('blur', (evt) => {
@@ -106,15 +104,7 @@
         }
       });
 
-      phoneInput.addEventListener('blur', (evt) => {
-        if (isOnlyNumbers(phoneInput.value)) {
-          let nextElement = phoneInput.nextElementSibling;
-            
-          nextElement.style.display = 'none';
-        } else {
-          nextElement.style.display = 'block';
-        }
-      });
+
 
       nameInput.addEventListener('input', function (evt) {
         nameInput.value = isOnlyLetters(evt.target.value) ? evt.target.value.toUpperCase() : nameInput.value = evt.target.value.slice(0, -1);
@@ -125,38 +115,53 @@
         } */
       });
 
+      phoneInput.addEventListener('blur', (evt) => {
+        let nextElement = phoneInput.nextElementSibling;
+        if (isOnlyNumbers(phoneInput.value)) {
+          nextElement.style.display = 'none';
+        } else {
+          nextElement.style.display = 'block';
+        }
+      });
+
       phoneInput.addEventListener('input', function (evt) {
         if (!isOnlyNumbers(evt.target.value)) {
-          //phoneInput.value = evt.target.value.slice(0, -1);
           let nextElement = phoneInput.nextElementSibling;  
-          console.log(nextElement);        
-
-          if(nextElement.innerText === 'Solo puede ingrensar numeros.' || nextElement.innerText === 'Solo  ingrensar numeros.'){
-            nextElement.innerText = "Solo numeros exisste";
-          }else{
+          if (nextElement && nextElement.nodeName === 'SELECT'){
             const errorMessage = document.createElement('p'); 
             errorMessage.style.color = 'red';
             errorMessage.style.fontWeight = 700;
             errorMessage.innerText = 'Solo puede ingrensar numeros.';
             gridForm.insertBefore(errorMessage, nextElement);
           }
-
-
-          
-
         }
       });
 
-
-
-
-
-
-
+      const url = 'https://pokeapi.co/api/v2/pokemon/ditto';
+      fetchData(url)
+        .then((data) => {
+          //DESTRUCTURACION
+          const {name: pokemonName, weight, abilities, ...restData} = data;
+          //const {name: pokemonName, ...restData} = data;
+         /*  const [firstAbilyty, secondAbility] = restData.abilities;
+          const {name: abilityName} = abilities[0].ability;
+          console.log(pokemonName, restData.weight, "Habilidad:", firstAbilyty.ability.name); */
+          const numeros = [1,2,3,4,5];
+          const secondNumber = [6,7,8,9,10, ...numeros];
+          const persona = {name: 'Alex', añoNacimiento: 1993, pais: 'Mexico'};
+          const edad = 31;
+          const personaWithAge = {...persona, edad, anoÑacimiento: 1992};
+          console.log(generateUserMessage(persona.name, personaWithAge.edad, weight, pokemonName));
+        })
+        .catch((error) => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
     });
 
-
   </script>
+    <script src="./assets/js/registro.js"></script>
+  <script src="./assets/js/main.js"></script>
+
 </body>
 
 </html>
